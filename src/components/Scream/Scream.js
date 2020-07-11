@@ -37,7 +37,7 @@ class Scream extends Component {
         userHandle,
         screamId,
         likeCount,
-        commnetCount,
+        commentCount,
       },
     } = this.props; // const classes = this.props.classes
     return (
