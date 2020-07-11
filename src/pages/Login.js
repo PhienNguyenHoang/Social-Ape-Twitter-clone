@@ -9,41 +9,23 @@ import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
-import CircularProgress from '@material-ui/core/CircularProgress';
+import CircularProgress from "@material-ui/core/CircularProgress";
 
-const styles = {
-  form: {
-    textAlign: "center",
-  },
-  image: {
-    margin: "20px auto 20px auto",
-    width: "100px",
-    height: "100px",
-  },
-  pageTitle: {
-    margin: "10px auto 10px auto",
-  },
-  textField: {
-    margin: "10px auto 10px auto",
-  },
-  button: {
-    marginTop: 20,
-    position: 'relative'
-  },
-  customError: {
-    color: "red",
-    fontSize: "0.8rem",
-    marginTop: 10,
-  },
-  signupMessage: {
-    margin: "10px 0px 0px 0px"
-  },
-  progess: {
-    position: 'absolute'
-  }
-};
+const styles = (theme) => ({
+  ...theme.spread
+});
 
 class Login extends Component {
+
+  constructor() {
+    super();
+    this.state = {
+      email: "",
+      password: "",
+      loading: false,
+      errors: {},
+    };
+  }
   handleSubmit = (event) => {
     event.preventDefault();
     this.setState({
@@ -57,6 +39,7 @@ class Login extends Component {
       .post("/login", userData)
       .then((res) => {
         console.log(res.data);
+        localStorage.setItem('FBIdtoken', `Bearer ${res.data.token}`);
         this.setState({
           loading: false,
         });
@@ -74,15 +57,6 @@ class Login extends Component {
       [event.target.name]: event.target.value,
     });
   };
-  constructor() {
-    super();
-    this.state = {
-      email: "",
-      password: "",
-      loading: false,
-      errors: {},
-    };
-  }
   render() {
     const { classes } = this.props;
     const { errors, loading } = this.state;
@@ -133,7 +107,11 @@ class Login extends Component {
             >
               Login
               {loading && (
-                <CircularProgress size={30} color="secondary" className={classes.progess} />
+                <CircularProgress
+                  size={30}
+                  color="secondary"
+                  className={classes.progess}
+                />
               )}
             </Button>
             <br></br>
