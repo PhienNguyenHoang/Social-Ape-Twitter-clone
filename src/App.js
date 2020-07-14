@@ -29,7 +29,6 @@ if (token) {
 }
 
 function App() {
-  debugger;
   return (
     <MuiThemeProvider theme={theme}>
       <Provider store={store}>

@@ -10,15 +10,14 @@ import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import CircularProgress from "@material-ui/core/CircularProgress";
 // redux
-import { connect } from 'react-redux';
-import { loginUser } from '../redux/actions/userActions';
+import { connect } from "react-redux";
+import { loginUser } from "../redux/actions/userActions";
 
 const styles = (theme) => ({
-  ...theme.spread
+  ...theme.spread,
 });
 
 class Login extends Component {
-
   constructor() {
     super();
     this.state = {
@@ -40,9 +39,12 @@ class Login extends Component {
       [event.target.name]: event.target.value,
     });
   };
-  
+
   render() {
-    const { classes, UI: { loading } } = this.props;
+    const {
+      classes,
+      UI: { loading },
+    } = this.props;
     const { errors } = this.state;
     return (
       <Grid container className={classes.form}>
@@ -112,18 +114,21 @@ class Login extends Component {
 
 Login.propTypes = {
   classes: PropTypes.object.isRequired,
-  loginUser: PropTypes.func.isRequired, 
+  loginUser: PropTypes.func.isRequired,
   user: PropTypes.object.isRequired,
   UI: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = (state) => ({
   user: state.user,
-  UI: state.UI
+  UI: state.UI,
 });
 
 const mapActionsToProps = {
-  loginUser
-}
+  loginUser,
+};
 
-export default connect(mapStateToProps, mapActionsToProps)(withStyles(styles)(Login));
+export default connect(
+  mapStateToProps,
+  mapActionsToProps
+)(withStyles(styles)(Login));
