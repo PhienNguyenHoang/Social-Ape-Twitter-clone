@@ -30,7 +30,6 @@ if (token) {
     store.dispatch(getUserData());
   }
 }
-localStorage.clear();
 function App() {
   return (
     <MuiThemeProvider theme={theme}>
