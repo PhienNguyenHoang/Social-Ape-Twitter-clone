@@ -1,10 +1,10 @@
-import React, { Component, Fragment } from "react";
+import React, { Fragment } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import "./Navbar.css";
 import PropTypes from "prop-types";
 import MyButton from "../../util/MyButton";
-import PostScream from '../PostScream';
+import PostScream from '../Scream/PostScream';
 //M-ui stuff
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";

@@ -2,7 +2,7 @@ import React, { Component, Fragment } from "react";
 import PropTypes from "prop-types";
 import dayjs from "dayjs";
 import { Link } from "react-router-dom";
-import EditDetails from "../EditDetails";
+import EditDetails from './EditDetails';
 //MUI
 import Button from "@material-ui/core/Button";
 import MuiLink from "@material-ui/core/Link";
