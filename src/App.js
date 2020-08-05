@@ -30,6 +30,7 @@ if (token) {
     store.dispatch(getUserData());
   }
 }
+
 function App() {
   return (
     <MuiThemeProvider theme={theme}>
