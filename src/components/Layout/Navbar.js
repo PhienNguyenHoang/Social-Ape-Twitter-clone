@@ -4,14 +4,14 @@ import { connect } from "react-redux";
 import "./Navbar.css";
 import PropTypes from "prop-types";
 import MyButton from "../../util/MyButton";
-import PostScream from '../Scream/PostScream';
+import PostScream from "../Scream/PostScream";
+import Notifications from './Notifications';
 //M-ui stuff
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Button from "@material-ui/core/Button";
 //icon
 import HomeIcon from "@material-ui/icons/Home";
-import Notifications from "@material-ui/icons/Notifications";
 
 function Navbar(props) {
   const { authenticated } = props;
@@ -27,9 +27,7 @@ function Navbar(props) {
                   <HomeIcon />
                 </MyButton>
               </Link>
-              <MyButton tip="Notifications">
-                <Notifications />
-              </MyButton>
+              <Notifications />
             </Fragment>
           ) : (
             <Fragment>
